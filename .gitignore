@@ -1,0 +1,8 @@
+link_bio/*.db
+link_bio/*.py[cod]
+link_bio/.web
+link_bio/__pycache__/
+link_bio/assets/external/
+link_bio/venv
+test-E2E/test-reports
+test-E2E/venv
