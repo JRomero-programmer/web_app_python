@@ -6,3 +6,4 @@ link_bio/assets/external/
 link_bio/venv
 test-E2E/test-reports
 test-E2E/venv
+.vscode
