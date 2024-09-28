@@ -6,8 +6,8 @@ RUN apt-get update && apt-get install -y \
 
 WORKDIR /usr/src/app
 
-COPY ./test-E2E/requirements.txt .
-COPY ./test-E2E/test_selenium.py .
+COPY ./requirements.txt .
+COPY ./test_selenium.py .
 
 RUN pip install --no-cache-dir -r requirements.txt
 

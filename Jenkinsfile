@@ -23,15 +23,33 @@ spec:
   }
 
   stages {
-    stage('Build and Test Docker image') {
+    stage('Build Web Image') {
       steps {
         container('docker') {
           script {
-            def image = docker.build('image_web_python', './link_bio')
+            def webImage = docker.build('image_web_python', './link_bio')
+          }
+        }
+      }
+    }
 
-            image.inside {
-              sh 'ls -lt'
-            }
+    stage('Build E2E Image') {
+      steps {
+        container('docker') {
+          script {
+            def e2eImage = docker.build('image_e2e_tests', './test_E2E')
+          }
+        }
+      }
+    }
+
+    stage('Run Web and E2E Containers') {
+      steps {
+        container('docker') {
+          script {
+            sh 'docker run -d --name web_container -p 3000:3000 image_web_python'
+
+            sh 'docker run --name e2e_container image_e2e_tests'
           }
         }
       }
