@@ -33,6 +33,14 @@ spec:
       }
     }
 
+    stage('Verify Test Directory') {
+      steps {
+        container('docker') {
+          sh 'ls -l'
+        }
+      }
+    }
+
     stage('Build E2E Image') {
       steps {
         container('docker') {
@@ -48,7 +56,6 @@ spec:
         container('docker') {
           script {
             sh 'docker run -d --name web_container -p 3000:3000 image_web_python'
-
             sh 'docker run --name e2e_container image_e2e_tests'
           }
         }
