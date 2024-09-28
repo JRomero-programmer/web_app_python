@@ -55,14 +55,7 @@ spec:
 
             sh 'docker run -d --name web_container --network test_network -p 3000:3000 image_web_python'
 
-            sh '''
-              echo "Waiting for web_container to be ready..."
-              until curl --output /dev/null --silent --fail http://web_container:3000; do
-                echo "Waiting for web service..."
-                sleep 5
-              done
-              echo "Web service is ready!"
-            '''
+            sh 'sleep 30'
 
             sh 'docker run --name e2e_container --network test_network image_e2e_tests'
           }
