@@ -26,7 +26,7 @@ class TestSelenium(unittest.TestCase):
 
     def test_webpage(self):
         driver = self.driver
-        driver.get('http://web_container:3000')
+        driver.get('http://localhost:3000')
         time.sleep(3)
 
         heading = driver.find_element(By.CLASS_NAME, 'rt-Heading')
