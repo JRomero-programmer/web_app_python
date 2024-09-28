@@ -33,19 +33,11 @@ spec:
       }
     }
 
-    stage('Verify Test Directory') {
-      steps {
-        container('docker') {
-          sh 'ls -l'
-        }
-      }
-    }
-
     stage('Build E2E Image') {
       steps {
         container('docker') {
           script {
-            def e2eImage = docker.build('image_e2e_tests', './test_E2E')
+            def e2eImage = docker.build('image_e2e_tests', './test-E2E')
           }
         }
       }
