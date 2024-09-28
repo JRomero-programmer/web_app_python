@@ -27,10 +27,10 @@ spec:
       steps {
         container('docker') {
           script {
-            def image = docker.build('web_python', './link_bio')
+            def image = docker.build('image_web_python', './link_bio')
 
             image.inside {
-              sh 'ls -l'
+              sh 'ls -lt'
             }
           }
         }

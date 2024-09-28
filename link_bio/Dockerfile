@@ -2,10 +2,10 @@ FROM python:3.9-slim
 
 WORKDIR /app
 
-COPY ./link_bio/assets ./assets
-COPY ./link_bio/link_bio ./link_bio
-COPY ./link_bio/requirements.txt .
-COPY ./link_bio/rxconfig.py .
+COPY ./assets ./assets
+COPY ./link_bio ./link_bio
+COPY ./requirements.txt .
+COPY ./rxconfig.py .
 
 RUN pip install --no-cache-dir -r requirements.txt
 
