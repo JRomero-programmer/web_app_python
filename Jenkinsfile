@@ -47,6 +47,8 @@ spec:
       steps {
         container('docker') {
           script {
+            sh 'docker stop web_container || true'
+            sh 'docker rm web_container || true'
             sh 'docker run -d --name web_container -p 3000:3000 image_web_python'
             sh 'docker run --name e2e_container image_e2e_tests'
           }
