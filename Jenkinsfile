@@ -53,7 +53,7 @@ spec:
             sh 'docker rm e2e_container || true'
             sh 'docker network create test_network || true'
 
-            sh 'docker run -d --name web_container --network host -p 3000:3000 image_web_python'
+            sh 'docker run -d --name web_container --network host image_web_python'
 
             sh 'sleep 30'
 
